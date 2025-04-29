@@ -1,4 +1,4 @@
-import userModel from "../models/userModel.js";
+import UserModel from "../models/userModel.js";
 import bcrypt from "bcryptjs";
 class AuthController {
     async getAllUsers(req, res) {
@@ -34,7 +34,7 @@ class AuthController {
 
             const user = await UserModel.create(data);
 
-            return resizeTo.status(201).json({
+            return res.status(201).json({
                 message: "Usuário criado com sucesso",
                 user,
             });
