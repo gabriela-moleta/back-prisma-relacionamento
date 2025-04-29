@@ -18,6 +18,16 @@ async findById(id) {
     return user;
   }
 
+  async findByEmail(email) {
+    const user = await prisma.user.findUnique({
+      where: {
+        email,
+      }
+    });
+
+    return user;
+  }
+
   async create(data) {
     const user = await prisma.user.create({
       data,
